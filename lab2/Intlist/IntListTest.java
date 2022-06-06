@@ -2,7 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class IntListTest {
+public class IntListTest
+{
 
     /**
      * Example test that verifies correctness of the IntList.of static
@@ -11,7 +12,8 @@ public class IntListTest {
      */
 
     @Test
-    public void testList() {
+    public void testList()
+    {
         IntList one = new IntList(1, null);
         IntList twoOne = new IntList(2, one);
         IntList threeTwoOne = new IntList(3, twoOne);
@@ -21,7 +23,8 @@ public class IntListTest {
     }
 
     @Test
-    public void testdSquareList() {
+    public void testdSquareList()
+    {
         IntList L = IntList.of(1, 2, 3);
         IntList.dSquareList(L);
         assertEquals(IntList.of(1, 4, 9), L);
@@ -41,7 +44,8 @@ public class IntListTest {
      */
 
     @Test
-    public void testSquareListRecursive() {
+    public void testSquareListRecursive()
+    {
         IntList L = IntList.of(1, 2, 3);
         IntList res = IntList.squareListRecursive(L);
         assertEquals(IntList.of(1, 2, 3), L);
@@ -49,16 +53,24 @@ public class IntListTest {
     }
 
     @Test
-    public void testDcatenate() {
+    public void testDcatenate()
+    {
         IntList A = IntList.of(1, 2, 3);
         IntList B = IntList.of(4, 5, 6);
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.dcatenate(A, B));
         assertEquals(IntList.of(1, 2, 3, 4, 5, 6), A);
+
+//        IntList A1 = IntList.of();
+//        IntList B1 = IntList.of(4,5,6);
+//        IntList exp1 = IntList.of(4,5,6);
+//        assertEquals(exp1, IntList.dcatenate(A1, B1));
+//        assertEquals(IntList.of(4,5,6), A1);
     }
 
     @Test
-    public void testCatenate() {
+    public void testCatenate()
+    {
         IntList A = IntList.of(1, 2, 3);
         IntList B = IntList.of(4, 5, 6);
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);

@@ -93,7 +93,24 @@ public class IntList
     public static IntList dcatenate(IntList A, IntList B)
     {
         //TODO:  fill in method
-        return null;
+
+        // get to the last one of A
+        IntList ptrA = A;
+        while (ptrA != null && ptrA.rest != null)
+        {
+            ptrA = ptrA.rest;
+        }
+
+        if (ptrA == null)
+        {
+            A = B;
+            return A;
+        }
+        else
+        {
+            ptrA.rest = B;
+        }
+        return A;
     }
 
     /**
@@ -102,8 +119,32 @@ public class IntList
      */
     public static IntList catenate(IntList A, IntList B)
     {
+        IntList res = new IntList();
         //TODO:  fill in method
-        return null;
+        if (A == null)
+        {
+            return B;
+        }
+        else
+        {
+            IntList ptrRes = res;
+            IntList ptrA = A;
+            IntList ptrB = B;
+            while (ptrA != null)
+            {
+                ptrRes.rest = new IntList(ptrA.first, null);
+                ptrRes = ptrRes.rest;
+                ptrA = ptrA.rest;
+            }
+
+            while (ptrB != null)
+            {
+                ptrRes.rest = new IntList(ptrB.first, null);
+                ptrRes = ptrRes.rest;
+                ptrB = ptrB.rest;
+            }
+        }
+        return res.rest;
     }
 
 
@@ -137,17 +178,22 @@ public class IntList
      * Returns a new IntList containing the ints in ARGS. You are not
      * expected to read or understand this method.
      */
-    public static IntList of(Integer... args) {
+    public static IntList of(Integer... args)
+    {
         IntList result, p;
 
-        if (args.length > 0) {
+        if (args.length > 0)
+        {
             result = new IntList(args[0], null);
-        } else {
+        }
+        else
+        {
             return null;
         }
 
         int k;
-        for (k = 1, p = result; k < args.length; k += 1, p = p.rest) {
+        for (k = 1, p = result; k < args.length; k += 1, p = p.rest)
+        {
             p.rest = new IntList(args[k], null);
         }
         return result;

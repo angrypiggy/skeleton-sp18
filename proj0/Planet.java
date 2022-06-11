@@ -61,4 +61,50 @@ public class Planet
         double FY = F * dy / r;
         return FY;
     }
+
+    public boolean equals(Planet p)
+    {
+        return p == this;
+    }
+
+    public double calcNetForceExertedByX(Planet[] pArray)
+    {
+        double netForceX = 0;
+        for (Planet p : pArray)
+        {
+            if (!equals(p))
+            {
+                netForceX += calcForceExertedByX(p);
+            }
+        }
+        return netForceX;
+    }
+
+    public double calcNetForceExertedByY(Planet[] pArray)
+    {
+        double netForceY = 0;
+        for (Planet p : pArray)
+        {
+            if (!equals(p))
+            {
+                netForceY += calcForceExertedByY(p);
+            }
+        }
+        return netForceY;
+    }
+
+    public void update(double dt, double fX, double fY)
+    {
+        // calculate the acceleration
+        double aX = fX / mass;
+        double aY = fY / mass;
+
+        // calculate the new velocity
+        xxVel = xxVel + dt * aX;
+        yyVel = yyVel + dt * aY;
+
+        // calculate the new position
+        xxPos = xxPos + dt * xxVel;
+        yyPos = yyPos + dt * yyVel;
+    }
 }

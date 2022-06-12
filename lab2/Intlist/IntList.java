@@ -103,7 +103,7 @@ public class IntList
 
         if (ptrA == null)
         {
-            A = B;
+            ptrA = B;
             return A;
         }
         else
